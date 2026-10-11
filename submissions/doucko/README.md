@@ -23,7 +23,7 @@ golden table. Генерацію і пояснення з AI запланова�
 
 Бекенд і фронтенд підключають `doucko-docs` як submodule `contract/` (зафіксований контракт API).
 
-## Стан (4.10.2026)
+## Стан (11.10.2026): MVP завершено
 
 | Слайс плану | Backend | Frontend |
 |---|---|---|
@@ -31,10 +31,19 @@ golden table. Генерацію і пояснення з AI запланова�
 | 2 admin-access | ✅ | ✅ |
 | 3 answer-checker | ✅ | — (лише бекенд) |
 | 4 child-profile | ✅ | — (лише бекенд) |
-| 5 authoring-tasks | ✅ + smoke на реальному стеку | ✅ + smoke на реальному стеку |
-| 6–9 missions, practice-flow, gamification, progress-stats | ⏳ далі | ⏳ далі |
+| 5 authoring-tasks | ✅ | ✅ |
+| 6 authoring-missions | ✅ | ✅ |
+| 7 practice-flow | ✅ | ✅ |
+| 8 gamification | ✅ | ✅ |
+| 9 progress-stats | ✅ | ✅ |
+
+Кожен слайс пройшов рев'ю окремим агентом і smoke на реальному стеку. Після слайсів — фази фабрики
+5 (ізольований e2e-стек, Playwright без моків), 6 (QA proof pack) і 7 (release review); release-перевірка
+між репо: 64 вимоги MVP — PASS. Зараз UAT (Phase 8).
 
 Повний план: [mvp-capability-plan.md](https://github.com/NatSjm/doucko-docs/blob/main/docs/mvp-capability-plan.md).
+
+**Відео-демо (1:52):** https://drive.google.com/file/d/16230eg8Wbxv79KfxyV-sv34odxT2V0YU/view
 
 ## Як запустити й перевірити
 
@@ -47,6 +56,9 @@ npm ci && npm run stack:up    # http://127.0.0.1:8081
 
 npm run qa:verify             # батарея перевірок (у кожному репо)
 npm run gate:status           # гейти G0–G8 фабрики
+
+# frontend: реальний стек без моків (up → seed → Playwright → down)
+npm run test:e2e:stack
 ```
 
 Докази практик Agentic Engineering наведено в описі PR.
